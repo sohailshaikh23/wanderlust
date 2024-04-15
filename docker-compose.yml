@@ -1,0 +1,25 @@
+version: "3.3"
+
+service:
+  backend:
+    container_name: backend
+    image: sohailshaikh23/wanferlust_backend:latest
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env.sample
+  
+  mongodb:
+    container_name: mongodb
+    image: sohailshaik23/wanderlust_mongodb:latest
+    ports:
+      - "27017:27017"
+
+  frontend:
+    container_name: frontend
+    image: sohailshaikh23/wanderlust_frontend:latest
+    env_file:
+      - ./backend/.env.sample
+    ports:
+      - "5173:5173"
+
