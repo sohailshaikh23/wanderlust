@@ -8,13 +8,15 @@ service:
       - "5000:5000"
     env_file:
       - ./backend/.env.sample
-  
+    depends_on:
+      - mongodb
   mongodb:
     container_name: mongodb
     image: sohailshaik23/wanderlust_mongodb:latest
     ports:
       - "27017:27017"
-
+    volumes:
+      - ./backend/data:/data
   frontend:
     container_name: frontend
     image: sohailshaikh23/wanderlust_frontend:latest
@@ -22,4 +24,5 @@ service:
       - ./backend/.env.sample
     ports:
       - "5173:5173"
-
+volumes:
+  data:
