@@ -1,5 +1,5 @@
 # Stage 1: build stage as backend-builder
-FROM node:21
+FROM node:21 AS backend-builder
 
 # setting up the working directory as /app
 WORKDIR /app

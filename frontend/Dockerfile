@@ -1,5 +1,5 @@
 # Stage 1: Build stage named as frontend-builder
-FROM node:21
+FROM node:21 AS frontend-builder
 
 # information about maintainer
 LABEL maintainer="sohailshaikh125@gmail.com"
@@ -14,6 +14,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
+
 COPY . .
 
 
