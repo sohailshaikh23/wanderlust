@@ -9,8 +9,10 @@ service:
       - ./backend/data:/data
   redis:
     container_name: redis
+    restart: unless-stopped
     image: redis:7.0.5-alpine
-    
+    espose:
+      - 6379
     depends_on:
       - mongodb
   backend:
