@@ -7,7 +7,12 @@ service:
       - "27017:27017"
     volumes:
       - ./backend/data:/data
-      
+  redis:
+    container_name: redis
+    image: redis:7.0.5-alpine
+    
+    depends_on:
+      - mongodb
   backend:
     container_name: backend
     image: sohailshaikh23/wanferlust_backend:latest
