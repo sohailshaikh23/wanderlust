@@ -1,4 +1,4 @@
-# Stage 1: Build stage named as frontend-builder
+################################### Stage 1: Build stage named as frontend-builder #######################
 FROM node:21 AS frontend-builder
 
 # information about maintainer
@@ -7,19 +7,16 @@ LABEL maintainer="sohailshaikh125@gmail.com"
 # Setting up the current working directory as /app
 WORKDIR /app
 
-# copy the package.json & package-lock.json to install the dependencies
-COPY package*.json ./
+# Copy the rest of the application code
+COPY . .
 
 # installing the dependencies
 RUN npm install
 
-# Copy the rest of the application code
-
-COPY . .
 
 
 
-# Stage 2 : Final stage
+######################################### Stage 2 : Final stage ######################################
 FROM node:21-slim
 
 # Setting up the current working directory as /app
