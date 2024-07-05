@@ -17,6 +17,7 @@ RUN npm install
 
 
 ######################################### Stage 2 : Final stage ######################################
+
 FROM node:21-slim
 
 # Setting up the current working directory as /app
@@ -28,7 +29,7 @@ COPY --from=frontend-builder /app .
 #Copy the environment varaible file 
 COPY .env.sample .env.local
 
-# Exposing the port 5173 for the application
+# Exposing the port 5173 for the application { default port is 3000 }
 EXPOSE 5173
 
 # Provide the default command to run the application
